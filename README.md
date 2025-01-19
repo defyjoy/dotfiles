@@ -1,5 +1,7 @@
 
-# DOTFILES 
+# DOTFILEs 
+
+These dotfiles are for `opensuse-microos` setup.
 
 
 ## CLONE REPO
@@ -8,7 +10,7 @@
 git clone git@github.com:defyjoy/dotfiles.git
 ```
 
-## INSTALL STOW
+## INSTALL STOW AND LINK DOTFILES
 
 ```bash
 cd dotfiles
