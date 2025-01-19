@@ -3,6 +3,7 @@ autojump
 base
 btrfsprogs
 cmake
+cmake-extras
 code
 distrobox
 dosfstools
@@ -19,6 +20,9 @@ irqbalance
 kde
 kernel-default
 kexec-tools
+kf6-kconfig-devel
+kf6-kconfigwidgets-devel
+kf6-kcoreaddons-devel
 laptop
 lvm2
 micro-editor
@@ -41,6 +45,12 @@ patterns-kde-kde
 patterns-yast-x11_yast
 patterns-yast-yast2_basis
 qbittorrent
+qt6-dbus-devel
+qt6-gui-devel
+qt6-network-devel
+qt6-test-devel
+qt6-widgets-devel
+qt6-xml-devel
 shim
 snapper
 stow
