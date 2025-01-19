@@ -43,6 +43,7 @@ patterns-yast-yast2_basis
 qbittorrent
 shim
 snapper
+stow
 x11
 x11_yast
 yast2_basis
