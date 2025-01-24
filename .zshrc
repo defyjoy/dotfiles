@@ -131,7 +131,6 @@ plugins=(
 
 zstyle ':omz:plugins:eza' 'icons' yes
 
-
 source ~/antigen.zsh
 
 # Load the oh-my-zsh's library.
@@ -154,5 +153,9 @@ antigen theme norm
 # Tell Antigen that you're done.
 antigen apply
 
+
+if [ "$(uname)" != "Darwin" ]; then
+   source ~/.autoenv/activate.sh
+fi
+
 source $ZSH/oh-my-zsh.sh
-source ~/.autoenv/activate.sh
