@@ -159,3 +159,6 @@ if [ "$(uname)" != "Darwin" ]; then
 fi
 
 source $ZSH/oh-my-zsh.sh
+
+export PATH=$PATH:~/.local/bin
+source ~/.autoenv/activate.sh
