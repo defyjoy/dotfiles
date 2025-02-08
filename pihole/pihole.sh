@@ -12,11 +12,11 @@ docker run -d \
     -e VIRTUAL_HOST="pi.hole" \
     -e PROXY_LOCATION="pi.hole" \
     -e Server_IP="192.168.68.66" \
-    thenetworkchuck/networkchuck_pihole
+    pihole/pihole
 
 printf 'Starting up pihole container '
 for i in $(seq 1 20); do
-    if [ "$(docker inspect -f "{{.State.Health.Status}}" pihole)" == "healthy" ] ; then
+    if [ "$(docker inspect -f "{{.State.Health.Status}}" pihole)" -eq "healthy" ] ; then
         printf ' OK'
         echo -e "\n$(docker logs pihole 2> /dev/null | grep 'password:') for your pi-hole: https://${IP}/admin/"
         exit 0
