@@ -13,6 +13,21 @@ sudo systemctl disable systemd-resolved
 hostname -I 
 ```
 
+## EDIT `resolv.conf`
+
+```bash
+sudo nano /etc/resolv.conf`
+```
+
+Edit and set nameserver you received in the step above.
+
+```bash
+nameserver 192.168.68.66
+
+search .
+```
+
+
 find the wifi ip ( should be static) and fine the ip and update `Server_IP` variable in docker.
 
 ## RUN PIHOLE
