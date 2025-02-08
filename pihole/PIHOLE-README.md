@@ -4,8 +4,10 @@ This setup is used to run pi-hole in docker. However this setup is only on nativ
 
 ## STOP SYSTEMD RESOLVE
 
+```bash
 sudo systemctl stop systemd-resolved
 sudo systemctl disable systemd-resolved
+```
 
 ## FIND THE HOSTNAME IP
 
