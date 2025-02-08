@@ -159,6 +159,16 @@ if [ "$(uname)" != "Darwin" ]; then
 fi
 
 source $ZSH/oh-my-zsh.sh
+source ~/.autoenv/activate.sh
+
+export PATH=$PATH:~/.local/bin
+# eval "$(/bin/brew shellenv)"
+# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+source ~/.config/envman/PATH.env
 
 export PATH=$PATH:~/.local/bin
 source ~/.autoenv/activate.sh
