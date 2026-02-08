@@ -39,8 +39,9 @@ sudo apt-get install -y \
   unzip \
   curl \
   eza \
+  btop \
+  fastfetch \
   zsh
-sudo apt-get install -y fastfetch 2>/dev/null || true
 
 # Common installers (distro-agnostic: non-apt packages + shared setup)
 for name in helm k9s kubectl eza-themes lazyssh kubectx getnf ohmyzsh antigen cursor eza lazygit autoenv nerd-fonts; do
