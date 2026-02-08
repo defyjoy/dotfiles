@@ -77,3 +77,6 @@ if [ ! -d "${HOME}/.oh-my-zsh" ]; then
 else
   echo "Oh My Zsh already installed at ~/.oh-my-zsh, skipping."
 fi
+
+# antigen — Zsh plugin manager (https://github.com/zsh-users/antigen); installs to ~/antigen.zsh
+curl -fsSL https://cdn.jsdelivr.net/gh/zsh-users/antigen@master/antigen.zsh -o "${HOME}/antigen.zsh"
