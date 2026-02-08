@@ -130,7 +130,18 @@ plugins=(
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+export PATH=$PATH:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/go/bin
+
+
+zstyle ':omz:plugins:eza' 'show-group' no
 zstyle ':omz:plugins:eza' 'icons' yes
+zstyle ':omz:plugins:eza' 'dirs-first' yes
+zstyle ':omz:plugins:eza' 'git-status' yes
+zstyle ':omz:plugins:eza' 'header' no
+zstyle ':omz:plugins:eza' 'time-style' 'default'
+zstyle ':omz:plugins:eza' 'icons' yes
+zstyle ':omz:plugins:eza' 'hyperlink' yes
+zstyle ':omz:plugins:eza' 'color-scale' age
 
 source ~/antigen.zsh
 
@@ -162,11 +173,6 @@ antigen apply
 source $ZSH/oh-my-zsh.sh
 # source ~/.autoenv/activate.sh
 
-export PATH=$PATH:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/go/bin
-# eval "$(/bin/brew shellenv)"
-# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-# Generated for envman. Do not edit.
-# [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
 source ~/.autoenv/activate.sh

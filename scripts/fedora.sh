@@ -34,6 +34,11 @@ sudo dnf install -y \
 # eza — modern ls replacement (via cargo; installs to ~/.cargo/bin)
 cargo install eza
 
+# eza-themes — clone to ~/Documents/repos, link catppuccin-latte (https://github.com/eza-community/eza-themes)
+mkdir -p "${HOME}/Documents/repos" "${HOME}/.config/eza"
+[ -d "${HOME}/Documents/repos/eza-themes" ] || git clone https://github.com/eza-community/eza-themes.git "${HOME}/Documents/repos/eza-themes"
+ln -sf "${HOME}/Documents/repos/eza-themes/themes/catppuccin-latte.yml" "${HOME}/.config/eza/theme.yml"
+
 # lazygit (via go; install to ~/go/bin)
 go install github.com/jesseduffield/lazygit@latest
 
@@ -65,7 +70,7 @@ sudo mv /tmp/kubens /usr/local/bin/ 2>/dev/null || true
 for d in /tmp/kubectx_*_linux_*; do [ -d "$d" ] && sudo mv "$d"/kubectx "$d"/kubens /usr/local/bin/ 2>/dev/null; rm -rf "$d"; done
 rm -f /tmp/kubectx.tar.gz
 
-# getnf — Nerd Font installer (https://github.com/getnf/getnf); installs to ~/.local/bin
+# getnf — Nerd Fonts (https://github.com/getnf/getnf)
 curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash -s -- --silent
 
 # autoenv — directory-based environments (https://github.com/hyperupcall/autoenv)
@@ -79,4 +84,9 @@ else
 fi
 
 # antigen — Zsh plugin manager (https://github.com/zsh-users/antigen); installs to ~/antigen.zsh
-curl -fsSL https://cdn.jsdelivr.net/gh/zsh-users/antigen@master/antigen.zsh -o "${HOME}/antigen.zsh"
+curl -L git.io/antigen > ~/antigen.zsh
+
+# Nerd Fonts
+getnf -i ComicShannsMono
+# Clear font cache
+fc-cache -f -v
