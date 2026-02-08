@@ -1,6 +1,10 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
+# Re-entry guard: avoid re-running this file if sourced again (e.g. from autoenv/.env).
+# [[ -n ${_ZDOT_LOADED:-} ]] && return
+# _ZDOT_LOADED=1
+
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -8,7 +12,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
+ZSH_THEME="norm"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -70,36 +74,38 @@ export ZSH="$HOME/.oh-my-zsh"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
- sudo
- git
- docker
- helm
- kubectl
- globalias
- suse
- terraform
- themes
- tldr
- uv
- vscode
- autojump
- zsh-interactive-cd
- zsh-navigation-tools
- aliases
- argocd
- autoenv
- aws
- command-not-found
- common-aliases
- cp
- docker-compose
- extract
- eza
- fzf
- dnf
-)
+# plugins=(
+#  sudo
+#  git
+#  docker
+#  helm
+#  kubectl
+#  globalias
+#  suse
+#  terraform
+#  themes
+#  tldr
+#  uv
+#  vscode
+#  autojump
+#  zsh-interactive-cd
+#  zsh-navigation-tools
+#  aliases
+#  argocd
+#  autoenv
+#  aws
+#  command-not-found
+#  common-aliases
+#  cp
+#  docker-compose
+#  extract
+#  eza
+#  fzf
+#  dnf
+# )
 
+# Load Oh My Zsh (theme + plugins above). Required for ZSH_THEME and plugins=() to apply.
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -131,7 +137,7 @@ plugins=(
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export PATH=$PATH:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/go/bin
-
+source ~/.autoenv/activate.sh
 
 zstyle ':omz:plugins:eza' 'show-group' no
 zstyle ':omz:plugins:eza' 'icons' yes
@@ -144,35 +150,60 @@ zstyle ':omz:plugins:eza' 'hyperlink' yes
 zstyle ':omz:plugins:eza' 'color-scale' age
 
 source ~/antigen.zsh
+# Suppress "Seems robbyrussell/oh-my-zsh is already installed!" (once per oh-my-zsh plugin).
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle heroku
-antigen bundle pip
-antigen bundle lein
-antigen bundle command-not-found
-
-# Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
+# Bundles: one call, multiple lines (empty lines and # lines ignored).
+antigen bundles <<'EOBUNDLES'
+git
+heroku
+pip
+lein
+command-not-found
+sudo
+docker
+helm
+kubectl
+globalias
+suse
+terraform
+themes
+tldr
+uv
+vscode
+autojump
+zsh-interactive-cd
+zsh-navigation-tools
+aliases
+argocd
+autoenv
+aws
+common-aliases
+cp
+docker-compose
+extract
+eza
+fzf
+dnf
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-autosuggestions
+EOBUNDLES
 
 # Load the theme.
-antigen theme norm
+# antigen theme norm
 
 # Tell Antigen that you're done.
-antigen apply
 
+_ANTIGEN_WARN_DUPLICATES=false
+
+
+antigen apply
 
 # if [ "$(uname)" != "Darwin" ]; then
 #    source ~/.autoenv/activate.sh
 # fi
 
-source $ZSH/oh-my-zsh.sh
 # source ~/.autoenv/activate.sh
 
-
-
-source ~/.autoenv/activate.sh
