@@ -8,7 +8,6 @@ sudo dnf install -y \
   btrfs-progs \
   dosfstools \
   e2fsprogs \
-  eza \
   fastfetch \
   fzf \
   git \
@@ -16,10 +15,7 @@ sudo dnf install -y \
   golang \
   helm \
   htop \
-  irqbalance \
   k9s \
-  kexec-tools \
-  kvantum \
   lvm2 \
   micro \
   ntfs-3g \
