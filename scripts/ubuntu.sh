@@ -1,19 +1,48 @@
-sudo apt get install git zsh fzf autoenv eza stow
+#!/usr/bin/env bash
+# Ubuntu setup: base packages (apt), then common installers (distro-agnostic), then remaining.
+# Mirrors fedora.sh package set with Ubuntu-appropriate install methods.
 
-# Install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+set -e
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/go/bin:$PATH"
 
-# Install kubectl
-curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/arm64/kubectl"
+# Ensure universe is enabled for micro, qbittorrent, fastfetch (on some releases)
+sudo add-apt-repository -y universe 2>/dev/null || true
+sudo apt-get update -y
 
-## Install NERD Font
+# Base system packages (Ubuntu apt)
+# Note: glibc is provided by libc6 (always installed). ntfsprogs functionality is in ntfs-3g on Ubuntu.
+# fastfetch is in Ubuntu 24.10+ and universe; on older releases install from GitHub releases or PPA if desired.
+sudo apt-get install -y \
+  ansible \
+  autojump \
+  awscli \
+  btrfs-progs \
+  cargo \
+  dosfstools \
+  e2fsprogs \
+  fzf \
+  jq \
+  git \
+  golang-go \
+  htop \
+  lvm2 \
+  micro \
+  ntfs-3g \
+  nvme-cli \
+  openssh-client \
+  openssh-server \
+  os-prober \
+  qbittorrent \
+  snapper \
+  stow \
+  unzip \
+  zsh
+sudo apt-get install -y fastfetch 2>/dev/null || true
 
-curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | zsh
+# Common installers (distro-agnostic: non-apt packages + shared setup)
+for name in helm k9s kubectl eza-themes lazyssh kubectx getnf ohmyzsh antigen cursor eza lazygit autoenv nerd-fonts; do
+  bash "${SCRIPT_DIR}/common/${name}.sh"
+done
 
-## Install autoenv
-
-curl -#fLo- 'https://raw.githubusercontent.com/hyperupcall/autoenv/master/scripts/install.sh' | sh
-
-
-## Install Antigen
-curl -L git.io/antigen > antigen.zsh
+sudo chsh -s "$(which zsh)" "$(whoami)"

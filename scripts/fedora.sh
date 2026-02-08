@@ -34,22 +34,10 @@ sudo dnf5 install -y \
   stow \
   zsh
 
-# Common installers (distro-agnostic: any Linux)
-for name in eza-themes lazyssh kubectx getnf ohmyzsh antigen cursor; do
+# Common installers (distro-agnostic: non-dnf packages + shared setup)
+# helm, k9s installed via dnf above; kubectl, eza, lazygit, autoenv, nerd-fonts via common scripts
+for name in kubectl eza-themes lazyssh kubectx getnf ohmyzsh antigen cursor eza lazygit autoenv nerd-fonts; do
   bash "${SCRIPT_DIR}/common/${name}.sh"
 done
-
-# eza — modern ls replacement (via cargo; installs to ~/.cargo/bin)
-cargo install eza
-
-# lazygit (via go; install to ~/go/bin)
-go install github.com/jesseduffield/lazygit@latest
-
-# autoenv — directory-based environments (https://github.com/hyperupcall/autoenv)
-[ -d "${HOME}/.autoenv" ] || curl -#fLo- 'https://raw.githubusercontent.com/hyperupcall/autoenv/main/scripts/install.sh' | sh
-
-# Nerd Fonts (requires getnf from getnf.sh)
-getnf -i ComicShannsMono
-fc-cache -f -v
 
 sudo chsh -s $(which zsh) $(whoami)
