@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Oh My Zsh: silent/unattended install (https://github.com/ohmyzsh/ohmyzsh)
+# Common: distro-agnostic
 
 if [ ! -d "${HOME}/.oh-my-zsh" ]; then
   RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended

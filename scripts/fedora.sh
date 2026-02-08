@@ -1,11 +1,42 @@
 #!/usr/bin/env bash
-# Fedora setup: run per-component scripts, then remaining installs.
+# Fedora setup: base packages (dnf5), then common installers (distro-agnostic), then remaining.
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-FEDORA_DIR="${SCRIPT_DIR}/fedora"
 
-for name in dnf5 eza-themes lazyssh kubectx getnf ohmyzsh antigen; do
-  bash "${FEDORA_DIR}/${name}.sh"
+# Base system packages (Fedora dnf5)
+sudo dnf5 install -y \
+  ansible \
+  autojump \
+  awscli2 \
+  btrfs-progs \
+  cargo \
+  dosfstools \
+  e2fsprogs \
+  fastfetch \
+  fzf \
+  jq \
+  git \
+  glibc \
+  golang \
+  helm \
+  htop \
+  k9s \
+  lvm2 \
+  micro \
+  ntfs-3g \
+  ntfsprogs \
+  nvme-cli \
+  openssh \
+  os-prober \
+  qbittorrent \
+  rust \
+  snapper \
+  stow \
+  zsh
+
+# Common installers (distro-agnostic: any Linux)
+for name in eza-themes lazyssh kubectx getnf ohmyzsh antigen; do
+  bash "${SCRIPT_DIR}/common/${name}.sh"
 done
 
 # eza — modern ls replacement (via cargo; installs to ~/.cargo/bin)

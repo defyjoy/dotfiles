@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # kubectx + kubens: switch kubectl context/namespace (https://github.com/ahmetb/kubectx)
+# Common: distro-agnostic
 
 KUBECTX_TAG=$(curl -fsSL https://api.github.com/repos/ahmetb/kubectx/releases/latest | jq -r .tag_name)
 KUBECTX_ARCH=$(uname -m); [ "$KUBECTX_ARCH" = aarch64 ] && KUBECTX_ARCH=arm64

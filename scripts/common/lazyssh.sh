@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # lazyssh: download binary from releases (https://github.com/Adembc/lazyssh)
+# Common: distro-agnostic
 
 LAZYSSH_TAG=$(curl -fsSL https://api.github.com/repos/Adembc/lazyssh/releases/latest | jq -r .tag_name)
 LAZYSSH_ARCH=$(uname -m); [ "$LAZYSSH_ARCH" = aarch64 ] && LAZYSSH_ARCH=arm64
