@@ -35,7 +35,7 @@ sudo dnf5 install -y \
   zsh
 
 # Common installers (distro-agnostic: any Linux)
-for name in eza-themes lazyssh kubectx getnf ohmyzsh antigen; do
+for name in eza-themes lazyssh kubectx getnf ohmyzsh antigen cursor; do
   bash "${SCRIPT_DIR}/common/${name}.sh"
 done
 
@@ -51,3 +51,5 @@ go install github.com/jesseduffield/lazygit@latest
 # Nerd Fonts (requires getnf from getnf.sh)
 getnf -i ComicShannsMono
 fc-cache -f -v
+
+sudo chsh -s $(which zsh) $(whoami)
