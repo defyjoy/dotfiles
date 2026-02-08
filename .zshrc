@@ -161,7 +161,7 @@ fi
 source $ZSH/oh-my-zsh.sh
 source ~/.autoenv/activate.sh
 
-export PATH=$PATH:~/.local/bin
+export PATH=$PATH:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/go/bin
 # eval "$(/bin/brew shellenv)"
 # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
@@ -170,5 +170,5 @@ export PATH=$PATH:~/.local/bin
 
 source ~/.config/envman/PATH.env
 
-export PATH=$PATH:~/.local/bin
+
 source ~/.autoenv/activate.sh
