@@ -1,4 +1,4 @@
+.git
+scripts
 docs
-.install-packages.sh
-installed-packages.sh
-README.md
+.gitignore

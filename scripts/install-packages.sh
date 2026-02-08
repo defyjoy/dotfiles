@@ -68,6 +68,9 @@ rm -f /tmp/kubectx.tar.gz
 # getnf — Nerd Font installer (https://github.com/getnf/getnf); installs to ~/.local/bin
 curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash -s -- --silent
 
+# autoenv — directory-based environments (https://github.com/hyperupcall/autoenv)
+[ -d "${HOME}/.autoenv" ] || curl -#fLo- 'https://raw.githubusercontent.com/hyperupcall/autoenv/main/scripts/install.sh' | sh
+
 # oh-my-zsh — silent/unattended install only if not already installed
 if [ ! -d "${HOME}/.oh-my-zsh" ]; then
   RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
