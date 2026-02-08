@@ -37,6 +37,8 @@ sudo apt-get install -y \
   snapper \
   stow \
   unzip \
+  curl \
+  eza \
   zsh
 sudo apt-get install -y fastfetch 2>/dev/null || true
 
