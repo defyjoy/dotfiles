@@ -14,6 +14,7 @@ fi
 brew install \
   ansible \
   argocd \
+  autoenv \
   autojump \
   awscli \
   bun \
