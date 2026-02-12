@@ -137,7 +137,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export PATH=$PATH:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/go/bin
-source ~/.autoenv/activate.sh
+# source ~/.autoenv/activate.sh
 
 zstyle ':omz:plugins:eza' 'show-group' no
 zstyle ':omz:plugins:eza' 'icons' yes
@@ -207,3 +207,6 @@ antigen apply
 
 # source ~/.autoenv/activate.sh
 
+alias tg=terragrunt
+alias tgp="terragrunt stack run plan"
+alias tga="terragrunt stack run apply --non-interactive"
