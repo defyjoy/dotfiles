@@ -6,7 +6,7 @@
 theme = GitHub Dark Default
 
 font-size = 14
-font-family = SF Mono
+font-family = ComicShannsMono Nerd Font
 
 # Transparency and blur
 background-opacity = 0.85
@@ -16,6 +16,7 @@ background-blur = true
 
 shell-integration-features = ssh-terminfo
 
+# font-codepoint-aliases = Arimo Nerd Font Propo
 
 # working-directory = "/Users/joydeep/Documents/"
 
