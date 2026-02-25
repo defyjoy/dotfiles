@@ -146,7 +146,7 @@ zstyle ':omz:plugins:eza' 'git-status' yes
 zstyle ':omz:plugins:eza' 'header' no
 zstyle ':omz:plugins:eza' 'time-style' 'default'
 zstyle ':omz:plugins:eza' 'icons' yes
-zstyle ':omz:plugins:eza' 'hyperlink' yes
+zstyle ':omz:plugins:eza' 'hyperlink' no
 zstyle ':omz:plugins:eza' 'color-scale' age
 
 source ~/antigen.zsh
