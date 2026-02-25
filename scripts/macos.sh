@@ -8,10 +8,18 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # Install Homebrew if missing
 if ! command -v brew &>/dev/null; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  # Ensure brew is in PATH for this script (install script doesn't update current shell)
+  if [[ -x /opt/homebrew/bin/brew ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  elif [[ -x /usr/local/bin/brew ]]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+  fi
 fi
 
 # Formulae
 brew install \
+  cursor \
+  cursor-cli \
   ansible \
   argocd \
   autoenv \
@@ -61,9 +69,9 @@ brew install \
   slack \
   swish \
   twingate \
-  zen \ 
+  zen \
   rectangle-pro \
-  forklift \ 
+  forklift \
   discord \
   google-chrome \
   firefox \
