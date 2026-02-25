@@ -80,7 +80,6 @@ brew install \
   steam \
   epic-games \
   origin \
-  ubisoft-connect \
   applite \
   monitorcontrol \
   bartender \
