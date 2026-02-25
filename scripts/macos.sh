@@ -45,10 +45,8 @@ brew install \
   uv \
   watch \
   xz \
-  zstd
-
-# Casks
-brew install --cask \
+  adobe-acrobat-reader \
+  zstd \
   arc \
   calibre \
   cursor \
@@ -63,7 +61,29 @@ brew install --cask \
   slack \
   swish \
   twingate \
-  zen
+  zen \ 
+  rectangle-pro \
+  forklift \ 
+  discord \
+  google-chrome \
+  firefox \
+  brave-browser \
+  spotify \
+  steam \
+  epic-games \
+  origin \
+  ubisoft-connect \
+  applite \
+  monitorcontrol \
+  bartender \
+  raycast \
+  alt-tab \
+  meetingbar \
+  shottr \
+  menubarx \
+  yt-music \
+  macs-fan-control
+
 
 # Optional: run common installers (distro-agnostic) if present
 for name in eza-themes lazyssh kubectx getnf ohmyzsh antigen cursor eza lazygit autoenv nerd-fonts; do
